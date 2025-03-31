@@ -1,0 +1,38 @@
+<odoo>
+
+    <template id="custom_invoice_template" inherit_id="account.report_invoice_document">
+         <!--Tomamos el div donde se encuentra el elemento que buscamos. En este caso, como no queremos mostrar la fecha,
+        utilizamos el replace, que lo reemplazará por nada y, por ende, no estará más. Hay que tener en cuenta que podemos utilizar
+        el modo "Inspeccionar" del navegador web para ver qué clase queremos cambiar. -->
+
+        <xpath expr="//div[@name='invoice_date']" position="replace"/>
+
+         <!--En este caso queremos agregar el campo prueba creado previamente en el model.
+        PREGUNTAR SI ASI ES LA FORMA EN LA QUE SEA HACE O NO
+        t-esc: Para mostrar valores de campos, escapando caracteres especiales.
+        t-field: Para mostrar valores de campos aplicando formatos específicos.
+        t-if: Para condiciones, muestra un bloque si la condición es verdadera.
+        t-foreach: Para iterar sobre una lista de elementos.
+        t-set: Para asignar valores a variables dentro de la plantilla.
+        t-call: Para incluir otras plantillas QWeb.
+        t-raw: Para mostrar contenido sin escapar caracteres.
+        t-att: Para asignar dinámicamente atributos HTML.
+        t-ignore: Para evitar que el contenido sea procesado. -->
+        <xpath expr="//h2" position="after">
+            <span t-field="o.prueba"/>
+        </xpath>
+    </template>
+
+    <template id="report_template" inherit_id="sale_stock.report_delivery_document_inherit_sale_stock">
+        <xpath expr="//div[@name='div_sched_date']" position="replace"/>
+    </template>
+
+    <!--La manera de llegar al h2 seria asi, poner primero el div que lo contiene y a continuacion // , luego usamos el replace para reempleazar el contenido
+     que tenia previamente por uno nuevo-->
+    <template id="report_purchase_template" inherit_id="purchase_stock.report_purchaseorder_document">
+       <xpath expr="//div[@class='page']//div[@class='mt-4']" position="replace">
+           <!-- con t-esc tomamos el valor del nombre, por eso si tomamos otro pedido se modificara tambien -->
+            <h2>Pedido de compra <span t-esc="o.name"/></h2>
+       </xpath>
+    </template>
+</odoo>

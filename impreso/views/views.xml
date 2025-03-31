@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+
+  <record id="view_move_form_inherit" model="ir.ui.view">
+      <field name="name">Nueva Impresion</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>  <!-- Debe coincidir exactamente con el ID de la vista base -->
+      <field name="arch" type="xml">
+          <field name="name" position="after">
+              <field name="prueba"/>
+          </field>
+      </field>
+  </record>
+
+      <record id="view_purchase_form_inherit" model="ir.ui.view">
+          <field name="name">Oferta Proveedor</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.purchase_order_form"/>
+          <field name="arch" type="xml">
+            <!--position="attributes":-->
+            <!--string: El texto que se muestra en la interfaz de usuario.-->
+            <!--default: El valor predeterminado que tendrá el campo cuando se cree un nuevo registro.-->
+            <!--readonly: Hace que el campo sea solo de lectura. Un valor True significa que no se puede editar.-->
+            <!--required: Hace que el campo sea obligatorio para guardar el formulario.-->
+            <!--help: El texto de ayuda que se muestra cuando el usuario pasa el ratón por encima del campo.-->
+            <!--invisible: Hace que el campo no se muestre en la interfaz de usuario.-->
+            <!--widget: Cambia el tipo de widget que se utiliza para mostrar el campo (por ejemplo, selection, char, etc.).-->
+            <!--domain: Establece un dominio para restringir las opciones de un campo (por ejemplo, un campo de relación).-->
+              <xpath expr="//field[@name='partner_ref']" position="attributes">
+                    <attribute name="string">Oferta proveedor nº</attribute>
+              </xpath>
+<!--              <xpath expr="//div[@name='date_planned_div']" position="after">-->
+<!--                <field name="x_num_albaran" string="Albarán proveedor nº"/>-->
+<!--              </xpath>-->
+          </field>
+      </record>
+
+      <record id="view_stock_form_inherit" model="ir.ui.view">
+          <field name="name">Nº Albarán</field>
+          <field name="model">stock.picking</field>
+          <field name="inherit_id" ref="stock.view_picking_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='date_deadline']" position="after">
+                <field name="x_num_albaran" string="Albarán proveedor nº"/>
+              </xpath>
+          </field>
+      </record>
+
+  </data>
+</odoo>

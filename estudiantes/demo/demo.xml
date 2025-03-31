@@ -1,0 +1,24 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Materias de prueba -->
+        <record id="demo_materia_matematicas" model="estudiantes.materia">
+            <field name="name">Matemáticas Avanzadas</field>
+            <field name="codigo">MATH202</field>
+        </record>
+
+        <record id="demo_materia_fisica" model="estudiantes.materia">
+            <field name="name">Física Cuántica</field>
+            <field name="codigo">PHYS303</field>
+        </record>
+
+        <record id="demo_materia_quimica" model="estudiantes.materia">
+            <field name="name">Química Orgánica</field>
+            <field name="codigo">CHEM202</field>
+        </record>
+
+        <record id="demo_materia_programacion" model="estudiantes.materia">
+            <field name="name">Programación en Python, SE SUPONE QUE NO SE ACTUALIZA</field>
+            <field name="codigo">CS101</field>
+        </record>
+    </data>
+</odoo>

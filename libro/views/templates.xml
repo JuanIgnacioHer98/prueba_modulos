@@ -1,0 +1,42 @@
+<!-- Es lo que veremos -->
+<odoo>
+    <data>
+        <!--el model es para poner el tipo de interfaz que queremos utilizar-->
+        <record id="le_podemos_poner_cualquier_nombre" model="ir.ui.view">
+            <field name="name">libro.tree.view</field>
+            <field name="model">libro.libro</field>
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="name"/>
+                        <field name="value"/>
+                    </tree>
+            </field>
+        </record>
+
+        <record id="le_podemos_poner_cualquier_nombre_form" model="ir.ui.view">
+            <field name="name">libro.form.view</field>
+            <field name="model">libro.libro</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="value"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <record id="vista_barra" model="ir.actions.act_window">
+            <field name="name">Libro</field>
+            <field name="res_model">libro.libro</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_root" name="Libro"/>
+        <menuitem id="menu_libro" name="Libro" parent="menu_root" action="vista_barra"/>
+    </data>
+</odoo>

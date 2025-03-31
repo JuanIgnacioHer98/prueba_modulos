@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_impreso,access_account_move_impreso,account.model_account_move,base.group_user,1,1,1,1
+access_purchase_order_albaran,access_purchase_order_albaran,purchase.model_purchase_order,base.group_user,1,1,1,1

@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="materia_tree_view" model="ir.ui.view">
+            <field name="name">materia.tree.view</field>
+            <field name="model">estudiantes.materia</field>
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="name"/>
+                        <field name="codigo"/>
+                    </tree>
+            </field>
+        </record>
+
+        <record id="materia_matematicas" model="estudiantes.materia">
+            <field name="name">Matemáticas</field>
+            <field name="codigo">MATH101</field>
+        </record>
+
+        <record id="materia_fisica" model="estudiantes.materia">
+            <field name="name">Física</field>
+            <field name="codigo">PHYS101</field>
+        </record>
+
+        <record id="materia_quimica" model="estudiantes.materia">
+            <field name="name">Química</field>
+            <field name="codigo">CHEM101</field>
+        </record>
+    </data>
+</odoo>

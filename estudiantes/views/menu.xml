@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="act_estudiante" model="ir.actions.act_window">
+            <field name="name">Estudiante</field>
+            <field name="res_model">estudiantes.estudiante</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="act_materia" model="ir.actions.act_window">
+            <field name="name">Materia</field>
+            <field name="res_model">estudiantes.materia</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_root" name="Estudiantes"/>
+
+        <menuitem id="menu_estudiante" name="Estudiante" parent="menu_root" action="act_estudiante"/>
+
+        <menuitem id="menu_materia" name="Materia" parent="menu_root" action="act_materia"/>
+
+    </data>
+</odoo>
